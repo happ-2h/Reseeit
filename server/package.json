@@ -1,0 +1,19 @@
+{
+  "name": "reseeit_api_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "happ-2h",
+  "license": "MIT",
+  "description": "API server for Reseeit. Communicates with the PostgreSQL server.",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
