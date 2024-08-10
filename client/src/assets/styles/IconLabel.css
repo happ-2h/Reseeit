@@ -1,0 +1,15 @@
+#iconlabel-container {
+  display: flex;
+  margin-bottom: 0.2rem;
+  gap: 1rem;
+}
+
+#iconlabel-container span {
+  color: var(--B500);
+}
+
+.icon {
+  width:  1rem;
+  height: 1rem;
+  text-align: center;
+}
