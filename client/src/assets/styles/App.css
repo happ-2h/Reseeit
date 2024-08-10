@@ -1,0 +1,24 @@
+:root {
+  --BG:   #F4F6F7;
+  --FG:   #0C1011;
+
+  --B500: #6E8C95;
+  --O100: #C4B7AE;
+  --G300: #9FAC8D;
+
+  --B600: #698891;
+  --O900: #50433A;
+  --G600: #667354;
+}
+
+#app-wrapper {
+  position: absolute;
+  margin:   0 auto;
+  overflow: hidden;
+  inset:    0px;
+
+  display:        flex;
+  flex-direction: column;
+
+  background-color: var(--BG);
+}
