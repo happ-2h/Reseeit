@@ -14,11 +14,15 @@ import '../assets/styles/AddProduct.css';
 const AddProduct = () => {
   const navigate = useNavigate();
 
-  const [name, setName]   = useState("");
-  const [date, setDate]   = useState("");
-  const [price, setPrice] = useState("");
+  // Form values
+  const [name,      setName]      = useState("");
+  const [date,      setDate]      = useState("");
+  const [price,     setPrice]     = useState("");
   const [condition, setCondition] = useState("");
-  const [category, setCategory]   = useState("");
+  const [category,  setCategory]  = useState("");
+
+  // Errors for required fields
+  const [requiredErrors, setRequiredErrors] = useState([false, false, false]);
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -29,15 +33,24 @@ const AddProduct = () => {
         body: JSON.stringify({
           name,
           date_purchased: date,
-          price_purchased: (+price*100),
-          condition,
+          price_purchased: price.trim() !== "" ? (+price*100)  : null,
+          condition:       condition.trim() !== "" ? condition : null,
           category
         }),
         headers: {
           "Content-Type": "application/json"
         }
       })
-      .then(val => navigate('/'))
+      .then(val => {
+        if (val.status === 400) {
+          setRequiredErrors([
+            name.trim() === "",
+            date.trim() === "",
+            category.trim() === ""
+          ]);
+        }
+        else navigate('/');
+      })
       .catch(err => console.error(err));
     } catch (error) {
       console.error(error);
@@ -55,8 +68,13 @@ const AddProduct = () => {
               <input id="name" className='addproduct-input'
                 value={name} onChange={e => setName(e.target.value)}
                 type="text" placeholder='Name'
+                style={requiredErrors[0] ? {border: "1px solid var(--R300)"} : {}}
                 required />
               <FontAwesomeIcon className='addproduct-icon' icon={faBox} color="#BDA995" />
+              {
+                requiredErrors[0] &&
+                <span className='required-notif'>required</span>
+              }
             </div>
           </div>
           <div className="field">
@@ -65,8 +83,13 @@ const AddProduct = () => {
               <input id="date" className='addproduct-input'
                 value={date} onChange={e => setDate(e.target.value)}
                 type="date" placeholder='Date Purchased'
+                style={requiredErrors[1] ? {border: "1px solid var(--R300)"} : {}}
                 required />
               <FontAwesomeIcon className='addproduct-icon' icon={faCalendar} color='#9C90AD' />
+              {
+                requiredErrors[1] &&
+                <span className='required-notif'>required</span>
+              }
             </div>
           </div>
           <div className="field">
@@ -94,8 +117,13 @@ const AddProduct = () => {
               <input id="category" className='addproduct-input'
                 value={category} onChange={e => setCategory(e.target.value)}
                 type="text" placeholder='Category'
+                style={requiredErrors[2] ? {border: "1px solid var(--R300)"} : {}}
                 required />
               <FontAwesomeIcon className='addproduct-icon' icon={faTableCellsLarge} color='#BDA995' />
+              {
+                requiredErrors[2] &&
+                <span className='required-notif'>required</span>
+              }
             </div>
           </div>
 
