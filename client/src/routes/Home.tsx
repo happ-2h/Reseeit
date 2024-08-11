@@ -31,6 +31,7 @@ const Home = () => {
         products.map((product: Product) => {
           return (
             <ProductCard key={ product.id }
+              product_id={ product.id }
               category={ product.category }
               condition={ product.condition }
               date={ product.date_purchased.split('T')[0] }
