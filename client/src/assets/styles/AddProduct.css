@@ -1,0 +1,106 @@
+#addproduct-container {
+  height: 100vh;
+
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+}
+
+#addproduct-form-container {
+  position: relative;
+  width:    50vw;
+
+  padding:    0 2rem;
+  border-radius: 8px;
+
+  background-color: #FFF;
+}
+
+#addproduct-heading {
+  height: 6rem;
+
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--N900);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size:   1.2rem;
+  font-weight: 600;
+
+  color: var(--O100);
+}
+
+.form-input {
+  position: relative;
+}
+
+.addproduct-label {
+  display: none;
+}
+
+.addproduct-input {
+  width: 100%;
+  height: 3rem;
+
+  padding:    0 0.8rem;
+  padding-left: 2.8rem;
+
+  border: 1px solid var(--N900);
+  border-radius: 4px;
+
+  color: #666;
+
+  will-change: background-color;
+  transition: all 200ms ease-out;
+}
+
+.addproduct-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1pt var(--B500);
+  background-color: var(--N900);
+}
+
+.addproduct-icon {
+  position: absolute;
+  top:  1rem;
+  left: 1rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+#addproduct-btn-submit {
+  width:  100%;
+  height: 2.5rem;
+
+  padding: 0 2rem;
+  border:  0;
+  border-radius: 4px;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size:  0.75rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background-color: var(--B500);
+  color: #FFFE;
+}
+
+#addproduct-btn-submit:focus {
+  outline: none;
+}
+
+#addproduct-btn-submit:hover {
+  background-color: #90acb4;
+}
+
+#addproduct-btn-submit:active {
+  background-color: #88c0cf;
+}
