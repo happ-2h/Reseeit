@@ -19,7 +19,7 @@
   <!-- Screenshots -->
 </p>
 
-Save your purchase details electronically to determine what needs to be cut, monetary wise, or what needs updating (given date-of-purchase).
+Save your purchase details electronically to determine what needs to be cut, monetary wise, or what needs upgrading (given date-of-purchase).
 
 ### Tech Stack
 - [PostgreSQL] - Object-relational database system.
@@ -48,7 +48,7 @@ $ sudo systemctl start postgresql
 2. Create the necessary database and table given in the [db.sql](../server/db/db.sql) file.
 
 ### Express API
-1. Create a `.env` file in the `server` directory with the following (replace `your_` with your details or replace with the defaults given):
+1. Create a `.env` file in the `server` directory with the following (replace `your_...` with your details or replace with the defaults given):
 ```dotenv
 # API port
 PORT=your_port            # default 3006
@@ -82,7 +82,7 @@ $ npm run dev
 # Production
 $ npm build
 ```
-- Run the client in your browser with the given link after `npm run dev`, for example.
+- Run the client in your browser with the given link after `npm run dev`.
 
 - [Detailed building for production](https://vitejs.dev/guide/build)
 
