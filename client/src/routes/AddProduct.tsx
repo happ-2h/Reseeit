@@ -27,13 +27,16 @@ const AddProduct = () => {
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
+    console.log(+price*100);
+
+
     try {
       fetch("http://localhost:3006/api/v1/products", {
         method: "POST",
         body: JSON.stringify({
           name,
-          date_purchased: date,
-          price_purchased: price.trim() !== "" ? (+price*100)  : null,
+          date_purchased:  date,
+          price_purchased: price.trim() !== "" ? price.split('.').join("")  : null,
           condition:       condition.trim() !== "" ? condition : null,
           category
         }),
