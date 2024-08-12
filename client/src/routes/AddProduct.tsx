@@ -4,11 +4,11 @@ const AddProduct = () => {
   return (
     <div id="addproduct-container" style={{
       height: "100vh",
-      display: "flex",
+      display:        "flex",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems:     "center"
     }}>
-      <Form type="add" />
+      <Form type="add" details={null} />
     </div>
   )
 };

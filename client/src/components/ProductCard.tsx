@@ -1,3 +1,7 @@
+import { useContext }      from "react";
+import { useNavigate }     from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ProductsContext } from "../context/ProductsContext";
 import {
   faArrowsRotate,
   faBriefcaseMedical,
@@ -10,21 +14,19 @@ import {
 import IconLabel from "./IconLabel";
 
 import '../assets/styles/ProductCard.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ProductsContext } from "../context/ProductsContext";
-import { useContext } from "react";
-
 
 interface ProductCardProps {
   product_id: number;
-  name: string;
-  date: string;
-  price: number | null;
-  condition: string | null;
-  category: string;
+  name:       string;
+  date:       string;
+  price:      number | null;
+  condition:  string | null;
+  category:   string;
 };
 
 const ProductCard = ({product_id, name, date, price, condition, category}: ProductCardProps) => {
+  const navigate = useNavigate();
+
   const { products, setProducts } = useContext(ProductsContext);
 
   /*
@@ -42,6 +44,10 @@ const ProductCard = ({product_id, name, date, price, condition, category}: Produ
     .catch(err => console.error(err));
   };
 
+  const handleUpdate = (pid: number) => {
+    navigate(`/product/${pid}/update`);
+  };
+
   return (
     <div id="productcard-container">
       <span>{name}</span>
@@ -50,7 +56,7 @@ const ProductCard = ({product_id, name, date, price, condition, category}: Produ
         <IconLabel icon={faCalendar} data={date} color="#9C90AD"/>
         {
           // TODO: remove fractional if currency doesn't use it
-          price &&
+          price !== null &&
           <IconLabel icon={faMoneyBill} data={parseFloat(price?.toString()).toFixed(2)} color="#B2B29E" />
         }
         {
@@ -61,7 +67,7 @@ const ProductCard = ({product_id, name, date, price, condition, category}: Produ
       </div>
 
       <div id="productcard-actions-container">
-        <FontAwesomeIcon icon={faArrowsRotate} className="productcard-actions-icon spin-grow" color="var(--G300)" />
+        <FontAwesomeIcon icon={faArrowsRotate} className="productcard-actions-icon spin-grow" color="var(--G300)" onClick={() => handleUpdate(product_id)} />
         <FontAwesomeIcon icon={faTrash} className="productcard-actions-icon shake" color="var(--R300)" onClick={() => handleDelete(product_id)} />
       </div>
     </div>

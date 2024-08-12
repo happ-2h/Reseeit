@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate }     from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,13 +9,16 @@ import {
   faTableCellsLarge
 } from '@fortawesome/free-solid-svg-icons';
 
+import { Product } from '../types';
+
 import '../assets/styles/Form.css';
 
 interface FormProps {
-  type: "add" | "update";
+  type:    "add" | "update";
+  details: Product | null;
 };
 
-const Form = ({type}: FormProps) => {
+const Form = ({type, details=null}: FormProps) => {
   const navigate = useNavigate();
 
   // Form values
@@ -28,6 +31,16 @@ const Form = ({type}: FormProps) => {
   // Errors for required fields
   const [requiredErrors, setRequiredErrors] = useState([false, false, false]);
 
+  useEffect(() => {
+    if (!details) return;
+
+    setName(details.name);
+    setDate(details.date_purchased.split('T')[0]);
+    setPrice(details.price_purchased / 100);
+    setCondition(details.condition);
+    setCategory(details.category);
+  }, [details])
+
   const handleSubmitAdd = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
@@ -37,7 +50,7 @@ const Form = ({type}: FormProps) => {
         body: JSON.stringify({
           name,
           date_purchased:  date,
-          price_purchased: price.trim() !== "" ? price.split('.').join("")  : null,
+          price_purchased: price.trim() !== "" ? price.split('.').join("") : null,
           condition:       condition.trim() !== "" ? condition : null,
           category
         }),
@@ -48,9 +61,9 @@ const Form = ({type}: FormProps) => {
       .then(val => {
         if (val.status === 400) {
           setRequiredErrors([
-            name.trim() === "",
-            date.trim() === "",
-            category.trim() === ""
+            name?.trim()     === "",
+            date?.trim()     === "",
+            category?.trim() === ""
           ]);
         }
         else navigate('/');
@@ -61,7 +74,38 @@ const Form = ({type}: FormProps) => {
     }
   };
 
-  const handleSubmitUpdate = () => {};
+  const handleSubmitUpdate = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+
+    try {
+      fetch(`http://localhost:3006/api/v1/products/${details?.id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+          name,
+          date_purchased:  date,
+          price_purchased: price.toString().trim() !== "" ? price.toString().split('.').join("") : null,
+          condition:       condition?.trim() !== "" ? condition : null,
+          category
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(val => {
+        if (val.status === 500) {
+          setRequiredErrors([
+            name?.trim()     === "",
+            date?.trim()     === "",
+            category?.trim() === ""
+          ]);
+        }
+        else navigate('/');
+      })
+      .catch(err => console.error(err));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div id="form-container">
