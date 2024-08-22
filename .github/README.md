@@ -89,13 +89,14 @@ $ npm build
 
 - [Detailed building for production](https://vitejs.dev/guide/build)
 
+## Theming
+- Read the [wiki](https://github.com/happ-2h/Reseeit/wiki/Theming) article on theming.
+
 ## License
 Distributed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for more information.
 
 <p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
-## Theming
-- Read the [wiki](https://github.com/happ-2h/Reseeit/wiki/Theming) article on theming.
 
 <!-- Reference Links -->
 [PostgreSQL]: <https://www.postgresql.org/>
