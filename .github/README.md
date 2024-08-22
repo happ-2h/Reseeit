@@ -94,6 +94,9 @@ Distributed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for more inf
 
 <p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
+## Theming
+- Read the [wiki](https://github.com/happ-2h/Reseeit/wiki/Theming) article on theming.
+
 <!-- Reference Links -->
 [PostgreSQL]: <https://www.postgresql.org/>
 [Express]: <https://expressjs.com/>
