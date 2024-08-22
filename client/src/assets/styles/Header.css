@@ -4,9 +4,9 @@
   height:   4rem;
   overflow: hidden;
 
-  border-bottom: 1px solid var(--N900);
+  /* border-bottom: 1px solid var(--N900); */
 
-  color: var(--B500);
+  /* color: var(--B500); */
 }
 
 #header-container header {
@@ -68,10 +68,10 @@ button {
   letter-spacing: normal;
   text-transform: none;
 
-  color: var(--B500);
+  /* color: var(--B500); */
 }
 
 #header-actions-container button:hover {
-  background-color: var(--O100);
+  /* background-color: var(--O100); */
   transform: translateY(-10px);
 }

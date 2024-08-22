@@ -12,6 +12,7 @@ import {
 import { Product } from '../types';
 
 import '../assets/styles/Form.css';
+import '../assets/styles/themes.css';
 
 interface FormProps {
   type:    "add" | "update";
@@ -108,13 +109,13 @@ const Form = ({type, details=null}: FormProps) => {
   };
 
   return (
-    <div id="form-container">
-      <span id="form-heading">{type} Product</span>
+    <div id="form-container" className='default-theme'>
+      <span id="form-heading" className='default-theme'>{type} Product</span>
       <form action="">
         <div className="field">
           <label className='form-label' htmlFor="name">Name</label>
           <div className="form-input-container">
-            <input id="name" className='form-input'
+            <input id="name" className='form-input default-theme'
               value={name} onChange={e => setName(e.target.value)}
               type="text" placeholder='Name'
               style={requiredErrors[0] ? {border: "1px solid var(--R300)"} : {}}
@@ -122,14 +123,14 @@ const Form = ({type, details=null}: FormProps) => {
             <FontAwesomeIcon className='form-icon' icon={faBox} color="#BDA995" />
             {
               requiredErrors[0] &&
-              <span className='required-notif'>required</span>
+              <span className='required-notif default-theme'>required</span>
             }
           </div>
         </div>
         <div className="field">
           <label className='form-label' htmlFor="date">Date</label>
           <div className="form-input-container">
-            <input id="date" className='form-input'
+            <input id="date" className='form-input default-theme'
               value={date} onChange={e => setDate(e.target.value)}
               type="date" placeholder='Date Purchased'
               style={requiredErrors[1] ? {border: "1px solid var(--R300)"} : {}}
@@ -137,14 +138,14 @@ const Form = ({type, details=null}: FormProps) => {
             <FontAwesomeIcon className='form-icon' icon={faCalendar} color='#9C90AD' />
             {
               requiredErrors[1] &&
-              <span className='required-notif'>required</span>
+              <span className='required-notif default-theme'>required</span>
             }
           </div>
         </div>
         <div className="field">
           <label className='form-label' htmlFor="price">Price</label>
           <div className="form-input-container">
-            <input id="price" className='form-input'
+            <input id="price" className='form-input default-theme'
               value={price} onChange={e => setPrice(e.target.value)}
               type="number" min={0} step={0.01}
               placeholder='Price'/>
@@ -154,7 +155,7 @@ const Form = ({type, details=null}: FormProps) => {
         <div className="field">
           <label className='form-label' htmlFor="condition">Condition</label>
           <div className="form-input-container">
-            <input id="condition" className='form-input'
+            <input id="condition" className='form-input default-theme'
               value={condition} onChange={e => setCondition(e.target.value)}
               type="text" placeholder='Condition'/>
             <FontAwesomeIcon className='form-icon' icon={faBriefcaseMedical} color='#B98C8C' />
@@ -163,7 +164,7 @@ const Form = ({type, details=null}: FormProps) => {
         <div className="field">
           <label className='form-label' htmlFor="category">Category</label>
           <div className="form-input-container">
-            <input id="category" className='form-input'
+            <input id="category" className='form-input default-theme'
               value={category} onChange={e => setCategory(e.target.value)}
               type="text" placeholder='Category'
               style={requiredErrors[2] ? {border: "1px solid var(--R300)"} : {}}
@@ -171,7 +172,7 @@ const Form = ({type, details=null}: FormProps) => {
             <FontAwesomeIcon className='form-icon' icon={faTableCellsLarge} color='#BDA995' />
             {
               requiredErrors[2] &&
-              <span className='required-notif'>required</span>
+              <span className='required-notif default-theme'>required</span>
             }
           </div>
         </div>

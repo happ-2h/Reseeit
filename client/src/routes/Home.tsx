@@ -6,7 +6,9 @@ import { ProductsContext }       from "../context/ProductsContext";
 import ProductCard               from "../components/ProductCard";
 
 import {Product} from '../types';
+
 import "../assets/styles/Home.css";
+import "../assets/styles/themes.css";
 
 const Home = () => {
   const { products, setProducts } = useContext(ProductsContext);
@@ -25,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div id="home-container">
+    <div className="home-container">
       {
         products &&
         products.map((product: Product) => {
@@ -37,6 +39,7 @@ const Home = () => {
               date={ product.date_purchased.split('T')[0] }
               name={ product.name }
               price={ product.price_purchased }
+              theme="default-theme"
             />
           );
         })
