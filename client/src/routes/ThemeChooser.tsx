@@ -34,6 +34,17 @@ const ThemeChooser = () => {
           isPreview={true}
           theme="catppuccin-mocha"
         />
+
+        <ProductCard
+          product_id={-1}
+          category="Clothing"
+          condition="New"
+          date="09-08-2007"
+          name="Ayu Dark"
+          price={18203}
+          isPreview={true}
+          theme="ayu-dark"
+        />
       </div>
     </>
   );

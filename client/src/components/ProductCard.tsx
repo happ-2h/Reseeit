@@ -79,6 +79,17 @@ const ProductCard = ({product_id, name, date, price, condition, category, isPrev
         default: return "#000";
       }
     }
+    else if (theme === "ayu-dark") {
+      switch(icon) {
+        case "faCalendar":         return "#D2A6FF";
+        case "faMoneyBill":        return "#95E6CB";
+        case "faBriefcaseMedical": return "#F07178";
+        case "faTableCellsLarge":  return "#E6B673";
+        case "faArrowsRotate":     return "#7FD962";
+        case "faTrash":            return "#D95757";
+        default: return "#000";
+      }
+    }
 
     return "#000";
   };

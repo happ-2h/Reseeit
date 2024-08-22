@@ -83,7 +83,8 @@
 /*******************
  * Catppuccin Mocha *
  *******************/
- #app-wrapper.catppuccin-mocha {
+/* App.tsx */
+#app-wrapper.catppuccin-mocha {
   background-color: #1e1e2e;
 }
 
@@ -153,4 +154,82 @@
 
 #form-btn-submit:active.catppuccin-mocha {
   background-color: #89DCEB;
+}
+
+
+
+/************
+ * Ayu Dark *
+ ************/
+/* App.tsx */
+#app-wrapper.ayu-dark {
+  background-color: #0D1017;
+}
+
+/* Header.tsx */
+#header-container.ayu-dark {
+  border-bottom: 1px solid #131721;
+  color: #BFBDB6;
+}
+
+.btn-icon.ayu-dark {
+  color: #6C5980;
+}
+
+#header-actions-container.ayu-dark button:hover {
+  background-color: #47526640;
+}
+
+/* ProductCard.tsx */
+#productcard-container.ayu-dark {
+  border: 1px solid #6C738080;
+  background-color: #0D1017;
+}
+
+#productcard-name.ayu-dark {
+  color: #95E6CB;
+}
+
+/* IconLabel.tsx */
+#iconlabel-container.ayu-dark span {
+  color: #39BAE6;
+}
+
+/* Form.tsx */
+#form-container.ayu-dark {
+  background-color: #0F131A;
+}
+
+#form-heading.ayu-dark {
+  border-bottom: 2px solid #131721;
+  color: #6C5980
+}
+
+.form-input.ayu-dark {
+  border: 1px solid #47526640;
+  color: #BFBDB6;
+  background-color: #47526633;
+}
+
+.form-input:focus.ayu-dark {
+  box-shadow: 0 0 0 1pt #59C2FF;
+  background-color: #47526640;
+}
+
+.required-notif.ayu-dark {
+  color: #D95757;
+  background-color: #0F131A;
+}
+
+#form-btn-submit.ayu-dark {
+  color: #BFBDB6;
+  background-color: #409FFF21;
+}
+
+#form-btn-submit:hover.ayu-dark {
+  background-color: #409FFF4D;
+}
+
+#form-btn-submit:active.ayu-dark {
+  background-color: #73B8FF;
 }
