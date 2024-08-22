@@ -16,7 +16,10 @@
 ## About the Project
 
 <p align="middle">
-  <!-- Screenshots -->
+  <img alt="homepage" src="./img/screenshots/homepage.png">
+  <img alt="theme picker" src="./img/screenshots/themepicker.png">
+  <img alt="add product" src="./img/screenshots/addproduct.png">
+  <img alt="update product" src="./img/screenshots/updateproduct.png">
 </p>
 
 Save your purchase details electronically to determine what needs to be cut, monetary wise, or what needs upgrading (given date-of-purchase).
