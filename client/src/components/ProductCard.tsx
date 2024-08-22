@@ -87,6 +87,7 @@ const ProductCard = ({product_id, name, date, price, condition, category, isPrev
     if (!isPreview) return;
 
     setTheme(theme);
+    localStorage.setItem("theme", theme);
   }
 
   return (

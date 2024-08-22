@@ -34,7 +34,7 @@ const Header = () => {
       <header>
         <div id="header-logo-container">
           <img src={logo_lt} alt="Reseeit logo" />
-          <span id="header-title" onClick={() => navigate('/')}>Resseit</span>
+          <span id="header-title" onClick={() => navigate('/')}>Reseeit</span>
         </div>
 
         <div id="header-actions-container" className={theme}>

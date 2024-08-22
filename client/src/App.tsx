@@ -1,5 +1,6 @@
+import { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { ProductsContext, ProductsContextProvider } from './context/ProductsContext';
+import { ProductsContext } from './context/ProductsContext';
 
 import AddProduct    from './routes/AddProduct';
 import Home          from './routes/Home';
@@ -9,13 +10,20 @@ import Header        from "./components/Header";
 
 import './assets/styles/App.css';
 import './assets/styles/themes.css';
-import { useContext } from 'react';
 
 function App() {
-  const { theme } = useContext(ProductsContext);
+  const { theme, setTheme } = useContext(ProductsContext);
+
+  useEffect(() => {
+    const lastTheme = localStorage.getItem("theme");
+
+    if (lastTheme) {
+      setTheme(lastTheme);
+    }
+  }, []);
 
   return (
-      <div id="app-wrapper" className={theme || "catppuccin-mocha"}>
+      <div id="app-wrapper" className={theme || "default-theme"}>
         <Router>
           <Header />
           <Routes>
