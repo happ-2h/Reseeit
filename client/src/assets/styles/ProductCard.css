@@ -3,7 +3,6 @@
   overflow: hidden;
 
   padding: 1rem;
-  /* border:  1px solid var(--B500); */
   border-radius: 4px;
 
   text-overflow: ellipsis;
@@ -14,7 +13,6 @@
   margin-bottom: 0.5rem;
 
   font-weight: 700;
-  /* color: var(--G300); */
 }
 
 #productcard-actions-container {

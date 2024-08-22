@@ -23,13 +23,15 @@ interface ProductCardProps {
   price:      number | null;
   condition:  string | null;
   category:   string;
+
   theme:      string;
+  isPreview:  boolean;
 };
 
-const ProductCard = ({product_id, name, date, price, condition, category, theme="default-theme"}: ProductCardProps) => {
+const ProductCard = ({product_id, name, date, price, condition, category, isPreview=false, theme="default-theme"}: ProductCardProps) => {
   const navigate = useNavigate();
 
-  const { products, setProducts } = useContext(ProductsContext);
+  const { products, setProducts, setTheme } = useContext(ProductsContext);
 
   /*
     Display cents
@@ -39,6 +41,8 @@ const ProductCard = ({product_id, name, date, price, condition, category, theme=
   if (price) price /= 100;
 
   const handleDelete = (pid: number) => {
+    if (isPreview) return;
+
     fetch(`http://localhost:3006/api/v1/products/${pid}`, {
       method: "DELETE"
     })
@@ -47,6 +51,8 @@ const ProductCard = ({product_id, name, date, price, condition, category, theme=
   };
 
   const handleUpdate = (pid: number) => {
+    if (isPreview) return;
+
     navigate(`/product/${pid}/update`);
   };
 
@@ -62,26 +68,43 @@ const ProductCard = ({product_id, name, date, price, condition, category, theme=
         default: return "#000";
       }
     }
+    else if (theme === "catppuccin-mocha") {
+      switch(icon) {
+        case "faCalendar":         return "#CBA6F7";
+        case "faMoneyBill":        return "#94E2D5";
+        case "faBriefcaseMedical": return "#EBA0AC";
+        case "faTableCellsLarge":  return "#FAB387";
+        case "faArrowsRotate":     return "#A6E3A1";
+        case "faTrash":            return "#F38BA8";
+        default: return "#000";
+      }
+    }
 
     return "#000";
   };
 
+  const themeSetHandling = () => {
+    if (!isPreview) return;
+
+    setTheme(theme);
+  }
+
   return (
-    <div id="productcard-container" className={theme}>
+    <div id="productcard-container" className={theme} onClick={themeSetHandling}>
       <span id="productcard-name" className={theme}>{name}</span>
 
       <div id="productcard-details-container">
-        <IconLabel icon={faCalendar} data={date} color={getIconColor("faCalendar")} />
+        <IconLabel icon={faCalendar} data={date} color={getIconColor("faCalendar")} theme={theme} />
         {
           // TODO: remove fractional if currency doesn't use it
           price !== null &&
-          <IconLabel icon={faMoneyBill} data={parseFloat(price?.toString()).toFixed(2)} color={getIconColor("faMoneyBill")} />
+          <IconLabel icon={faMoneyBill} data={parseFloat(price?.toString()).toFixed(2)} color={getIconColor("faMoneyBill")} theme={theme} />
         }
         {
           condition &&
-          <IconLabel icon={faBriefcaseMedical} data={condition} color={getIconColor("faBriefcaseMedical")} />
+          <IconLabel icon={faBriefcaseMedical} data={condition} color={getIconColor("faBriefcaseMedical")} theme={theme} />
         }
-        <IconLabel icon={faTableCellsLarge} data={category} color={getIconColor("faTableCellsLarge")} />
+        <IconLabel icon={faTableCellsLarge} data={category} color={getIconColor("faTableCellsLarge")} theme={theme} />
       </div>
 
       <div id="productcard-actions-container">

@@ -110,6 +110,35 @@ const Form = ({type, details=null}: FormProps) => {
     }
   };
 
+  const getIconColor = (icon:string) => {
+    if (theme === "default-theme") {
+      switch(icon) {
+        case "faBox":              return "#BDA995";
+        case "faCalendar":         return "#9C90AD";
+        case "faMoneyBill":        return "#B2B29E";
+        case "faBriefcaseMedical": return "#B98C8C";
+        case "faTableCellsLarge":  return "#BDA995";
+        case "faArrowsRotate":     return "#9FAC8D";
+        case "faTrash":            return "#B46161";
+        default: return "#000";
+      }
+    }
+    else if (theme === "catppuccin-mocha") {
+      switch(icon) {
+        case "faBox":              return "#F2CDCD";
+        case "faCalendar":         return "#CBA6F7";
+        case "faMoneyBill":        return "#94E2D5";
+        case "faBriefcaseMedical": return "#EBA0AC";
+        case "faTableCellsLarge":  return "#FAB387";
+        case "faArrowsRotate":     return "#A6E3A1";
+        case "faTrash":            return "#F38BA8";
+        default: return "#000";
+      }
+    }
+
+    return "#000";
+  };
+
   return (
     <div id="form-container" className={theme}>
       <span id="form-heading" className={theme}>{type} Product</span>
@@ -122,10 +151,10 @@ const Form = ({type, details=null}: FormProps) => {
               type="text" placeholder='Name'
               style={requiredErrors[0] ? {border: "1px solid var(--R300)"} : {}}
               required />
-            <FontAwesomeIcon className='form-icon' icon={faBox} color="#BDA995" />
+            <FontAwesomeIcon className='form-icon' icon={faBox} color={getIconColor("faBox")} />
             {
               requiredErrors[0] &&
-              <span className='required-notif default-theme'>required</span>
+              <span className={`required-notif ${theme}`}>required</span>
             }
           </div>
         </div>
@@ -137,7 +166,7 @@ const Form = ({type, details=null}: FormProps) => {
               type="date" placeholder='Date Purchased'
               style={requiredErrors[1] ? {border: "1px solid var(--R300)"} : {}}
               required />
-            <FontAwesomeIcon className='form-icon' icon={faCalendar} color='#9C90AD' />
+            <FontAwesomeIcon className='form-icon' icon={faCalendar} color={getIconColor("faCalendar")} />
             {
               requiredErrors[1] &&
               <span className={`required-notif ${theme}`}>required</span>
@@ -151,7 +180,7 @@ const Form = ({type, details=null}: FormProps) => {
               value={price} onChange={e => setPrice(e.target.value)}
               type="number" min={0} step={0.01}
               placeholder='Price'/>
-            <FontAwesomeIcon className='form-icon' icon={faMoneyBill} color='#B2B29E' />
+            <FontAwesomeIcon className='form-icon' icon={faMoneyBill} color={getIconColor("faMoneyBill")} />
           </div>
         </div>
         <div className="field">
@@ -160,7 +189,7 @@ const Form = ({type, details=null}: FormProps) => {
             <input id="condition" className={`form-input ${theme}`}
               value={condition} onChange={e => setCondition(e.target.value)}
               type="text" placeholder='Condition'/>
-            <FontAwesomeIcon className='form-icon' icon={faBriefcaseMedical} color='#B98C8C' />
+            <FontAwesomeIcon className='form-icon' icon={faBriefcaseMedical} color={getIconColor("faBriefcaseMedical")} />
           </div>
         </div>
         <div className="field">
@@ -171,7 +200,7 @@ const Form = ({type, details=null}: FormProps) => {
               type="text" placeholder='Category'
               style={requiredErrors[2] ? {border: "1px solid var(--R300)"} : {}}
               required />
-            <FontAwesomeIcon className='form-icon' icon={faTableCellsLarge} color='#BDA995' />
+            <FontAwesomeIcon className='form-icon' icon={faTableCellsLarge} color={getIconColor("faTableCellsLarge")} />
             {
               requiredErrors[2] &&
               <span className={`required-notif ${theme}`}>required</span>
@@ -180,7 +209,7 @@ const Form = ({type, details=null}: FormProps) => {
         </div>
 
         <div className="field">
-          <button id="form-btn-submit" onClick={type === "add" ? handleSubmitAdd : handleSubmitUpdate}>submit</button>
+          <button id="form-btn-submit" className={theme} onClick={type === "add" ? handleSubmitAdd : handleSubmitUpdate}>submit</button>
         </div>
       </form>
     </div>

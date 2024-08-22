@@ -16,7 +16,7 @@ import '../assets/styles/themes.css';
 const Header = () => {
   const navigate     = useNavigate();
   const { pathname } = useLocation();
-  const { theme } = useContext(ProductsContext);
+  const { theme }    = useContext(ProductsContext);
 
   const handleActionAddProduct = () => {
     switch(pathname) {

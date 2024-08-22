@@ -1,3 +1,6 @@
+* {
+  transition: all 150ms ease-out;
+}
 /*****************
  * Default Theme *
  *****************/
@@ -23,11 +26,18 @@
 /* ProductCard.tsx */
 #productcard-container.default-theme {
   border: 1px solid #6E8C95;
+  background-color: #F4F6F7;
 }
 
 #productcard-name.default-theme {
   color: #9FAC8D;
 }
+
+/* IconLabel.tsx */
+#iconlabel-container.default-theme span {
+  color: #6E8C95;
+}
+
 
 /* Form.tsx */
 #form-container.default-theme {
@@ -35,13 +45,14 @@
 }
 
 #form-heading.default-theme {
+  color: #C4B7AE;
   border-bottom: 2px solid #EEE;
-  color: #C4B7AE
 }
 
 .form-input.default-theme {
   border: 1px solid #EEE;
   color: #666;
+  background-color: #FFF;
 }
 
 .form-input:focus.default-theme {
@@ -54,60 +65,92 @@
   background-color: #FFF;
 }
 
+#form-btn-submit.default-theme {
+  color: #FFFE;
+  background-color: #6E8C95;
+}
+
+#form-btn-submit:hover.default-theme {
+  background-color: #90acb4;
+}
+
+#form-btn-submit:active.default-theme {
+  background-color: #88c0cf;
+}
 
 
 
 /*******************
- * Catppucin Mocha *
+ * Catppuccin Mocha *
  *******************/
- #app-wrapper.catppucin-mocha {
+ #app-wrapper.catppuccin-mocha {
   background-color: #1e1e2e;
 }
 
 /* Header.tsx */
-#header-container.catppucin-mocha {
-  border-bottom: 1px solid #EEE;
-  color: #6E8C95;
+#header-container.catppuccin-mocha {
+  border-bottom: 1px solid #313244;
+  color: #CDD6F4;
 }
 
-.btn-icon.catppucin-mocha {
-  color: #6E8C95;
+.btn-icon.catppuccin-mocha {
+  color: #CDD6F4;
 }
 
-#header-actions-container.catppucin-mocha button:hover {
-  background-color: #C4B7AE;
+#header-actions-container.catppuccin-mocha button:hover {
+  background-color: #313244;
 }
 
 /* ProductCard.tsx */
-#productcard-container.catppucin-mocha {
-  border: 1px solid #6E8C95;
+#productcard-container.catppuccin-mocha {
+  border: 1px solid #313244;
+  background-color: #1e1e2e;
 }
 
-#productcard-name.catppucin-mocha {
-  color: #9FAC8D;
+#productcard-name.catppuccin-mocha {
+  color: #BAC2DE;
+}
+
+/* IconLabel.tsx */
+#iconlabel-container.catppuccin-mocha span {
+  color: #A6E3A1;
 }
 
 /* Form.tsx */
-#form-container.catppucin-mocha {
-  background-color: #FFF;
+#form-container.catppuccin-mocha {
+  background-color: #181825;
 }
 
-#form-heading.catppucin-mocha {
-  border-bottom: 2px solid #EEE;
-  color: #C4B7AE
+#form-heading.catppuccin-mocha {
+  border-bottom: 2px solid #313244;
+  color: #CDD6F4
 }
 
-.form-input.catppucin-mocha {
-  border: 1px solid #EEE;
-  color: #666;
+.form-input.catppuccin-mocha {
+  border: 1px solid #9399B2;
+  color: #BAC2DE;
+  background-color: #45475A;
 }
 
-.form-input:focus.catppucin-mocha {
-  box-shadow: 0 0 0 1pt #6E8C95;
-  background-color: #EEE;
+.form-input:focus.catppuccin-mocha {
+  box-shadow: 0 0 0 1pt #B4BEFE;
+  background-color: #45475A;
 }
 
-.required-notif.catppucin-mocha {
-  color: #B46161;
-  background-color: #FFF;
+.required-notif.catppuccin-mocha {
+  color: #F38BA8;
+  background-color: #181825;
+}
+
+#form-btn-submit.catppuccin-mocha {
+  color: #CDD6F4;
+  background-color: #89B4FA;
+}
+
+#form-btn-submit:hover.catppuccin-mocha {
+  background-color: #74C7EC;
+}
+
+#form-btn-submit:active.catppuccin-mocha {
+  background-color: #89DCEB;
 }

@@ -12,11 +12,10 @@ import './assets/styles/themes.css';
 import { useContext } from 'react';
 
 function App() {
-  const { theme, setTheme, products } = useContext(ProductsContext);
+  const { theme } = useContext(ProductsContext);
 
   return (
-    <ProductsContextProvider>
-      <div id="app-wrapper" className={"default-theme"}>
+      <div id="app-wrapper" className={theme || "catppuccin-mocha"}>
         <Router>
           <Header />
           <Routes>
@@ -27,7 +26,6 @@ function App() {
           </Routes>
         </Router>
       </div>
-    </ProductsContextProvider>
   )
 }
 
