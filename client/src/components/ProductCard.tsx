@@ -67,7 +67,7 @@ const ProductCard = ({product_id, name, date, price, condition, category, theme=
   };
 
   return (
-    <div id="productcard-container" className="default-theme">
+    <div id="productcard-container" className={theme}>
       <span id="productcard-name" className={theme}>{name}</span>
 
       <div id="productcard-details-container">

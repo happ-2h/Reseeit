@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { ProductsContextProvider } from './context/ProductsContext';
+import { ProductsContext, ProductsContextProvider } from './context/ProductsContext';
 
 import AddProduct    from './routes/AddProduct';
 import Home          from './routes/Home';
@@ -9,11 +9,14 @@ import Header        from "./components/Header";
 
 import './assets/styles/App.css';
 import './assets/styles/themes.css';
+import { useContext } from 'react';
 
 function App() {
+  const { theme, setTheme, products } = useContext(ProductsContext);
+
   return (
     <ProductsContextProvider>
-      <div id="app-wrapper" className='default-theme'>
+      <div id="app-wrapper" className={"default-theme"}>
         <Router>
           <Header />
           <Routes>

@@ -11,7 +11,7 @@ import "../assets/styles/Home.css";
 import "../assets/styles/themes.css";
 
 const Home = () => {
-  const { products, setProducts } = useContext(ProductsContext);
+  const { products, setProducts, theme } = useContext(ProductsContext);
 
   useEffect(() => {
     (async() => {
@@ -39,7 +39,7 @@ const Home = () => {
               date={ product.date_purchased.split('T')[0] }
               name={ product.name }
               price={ product.price_purchased }
-              theme="default-theme"
+              theme={theme}
             />
           );
         })

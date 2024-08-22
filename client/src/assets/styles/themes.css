@@ -53,3 +53,61 @@
   color: #B46161;
   background-color: #FFF;
 }
+
+
+
+
+/*******************
+ * Catppucin Mocha *
+ *******************/
+ #app-wrapper.catppucin-mocha {
+  background-color: #1e1e2e;
+}
+
+/* Header.tsx */
+#header-container.catppucin-mocha {
+  border-bottom: 1px solid #EEE;
+  color: #6E8C95;
+}
+
+.btn-icon.catppucin-mocha {
+  color: #6E8C95;
+}
+
+#header-actions-container.catppucin-mocha button:hover {
+  background-color: #C4B7AE;
+}
+
+/* ProductCard.tsx */
+#productcard-container.catppucin-mocha {
+  border: 1px solid #6E8C95;
+}
+
+#productcard-name.catppucin-mocha {
+  color: #9FAC8D;
+}
+
+/* Form.tsx */
+#form-container.catppucin-mocha {
+  background-color: #FFF;
+}
+
+#form-heading.catppucin-mocha {
+  border-bottom: 2px solid #EEE;
+  color: #C4B7AE
+}
+
+.form-input.catppucin-mocha {
+  border: 1px solid #EEE;
+  color: #666;
+}
+
+.form-input:focus.catppucin-mocha {
+  box-shadow: 0 0 0 1pt #6E8C95;
+  background-color: #EEE;
+}
+
+.required-notif.catppucin-mocha {
+  color: #B46161;
+  background-color: #FFF;
+}
