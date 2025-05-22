@@ -6,7 +6,7 @@
     <img src="./img/logo.png" alt="Reseeit logo" width="90" height="160">
   </a>
 
-  <h3>Resseit</h3>
+  <h3>Reseeit</h3>
 
   <p align="center">
     Save your purchase details in a database instead of saving receipts.
